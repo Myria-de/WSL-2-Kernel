@@ -84,7 +84,7 @@ Unser Tool Win-Deploy ermöglicht ein schnelles Windows-Setup in einer Virtualbo
 Die Installation erfolgt in eine VHD-Datei, aus der sich das System auch über den Windows-Bootmanager starten lässt (VHD native boot). Die Arbeit erledigen einige Bash-Scripts und das Python-Tool 
 „setup_win10“ (siehe https://m6u.de/PYDEP ). Win-Deploy ist ein grafisches Front-End für die Anpassung der Scripts. Virtualbox (www.virtualbox.org ) sollte unter Windows im Standardordner installiert sein, andernfalls müssen Sie die Scripts anpassen.
 
-Zur Installation entpacken Sie Win-Deploy (https://m6u.de/WSLK ) in das Linux-Home-Verzeichnis. Starten Sie im Terminal das Script „install-deps.sh“ aus dem Ordner „install“. Es richtet die nötigen Pakete ein.
+Zur Installation entpacken Sie Win-Deploy () in das Linux-Home-Verzeichnis. Starten Sie im Terminal das Script „install-deps.sh“ aus dem Ordner „install“. Es richtet die nötigen Pakete ein.
 
 Die VHD-Datei wird mit Hilfe von quemu-nbd über das Gerät „/dev/nbd[X]“ erstellt. Grafische Anwendungen werden mit erhöhten Rechten unter Linux in der Regel über das Tool pkexec gestartet, was in WSL zur Zeit nicht funktioniert. Daher starten Sie das Programm so:
 ```
