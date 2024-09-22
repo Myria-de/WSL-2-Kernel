@@ -38,7 +38,8 @@ sudo apt install build-essential flex bison dwarves libssl-dev libelf-dev libncu
 ```
 mkdir kernel
 cd kernel
-git clone https://github.com/microsoft/WSL2-Linux-Kernel.git --depth=1 -b linux-msft-wsl-6.6.y
+git clone https://git![302_00_WSL](https://github.com/user-attachments/assets/1e3e76c6-1539-4171-aa89-c20390112a33)
+hub.com/microsoft/WSL2-Linux-Kernel.git --depth=1 -b linux-msft-wsl-6.6.y
 cd WSL2-Linux-Kernel
 ```
 Die Kernel-Version passen Sie bei Bedarf an (siehe https://github.com/microsoft/WSL2-Linux-Kernel).
