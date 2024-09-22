@@ -79,3 +79,18 @@ uname -a
 ```
 die Version des neuen Kernels.
 ## Linux-Anwendung unter WSL ausprobieren
+Unser Tool Win-Deploy ermöglicht ein schnelles Windows-Setup in einer Virtualbox-VM – und zwar unter Linux und WSL. 
+
+Die Installation erfolgt in eine VHD-Datei, aus der sich das System auch über den Windows-Bootmanager starten lässt (VHD native boot). Die Arbeit erledigen einige Bash-Scripts und das Python-Tool 
+„setup_win10“ (siehe https://m6u.de/PYDEP ). Win-Deploy ist ein grafisches Front-End für die Anpassung der Scripts. Virtualbox (www.virtualbox.org ) sollte unter Windows im Standardordner installiert sein, andernfalls müssen Sie die Scripts anpassen.
+
+Zur Installation entpacken Sie Win-Deploy (https://m6u.de/WSLK ) in das Linux-Home-Verzeichnis. Starten Sie im Terminal das Script „install-deps.sh“ aus dem Ordner „install“. Es richtet die nötigen Pakete ein.
+
+Die VHD-Datei wird mit Hilfe von quemu-nbd über das Gerät „/dev/nbd[X]“ erstellt. Grafische Anwendungen werden mit erhöhten Rechten unter Linux in der Regel über das Tool pkexec gestartet, was in WSL zur Zeit nicht funktioniert. Daher starten Sie das Programm so:
+```
+sudo -E ./win_deploy
+```
+Sie benötigen die ISO-Datei des Windows-Installationsmediums, die Sie hinter „ISO-Datei“ wählen. Tragen Sie einen Namen für die VHD-Datei und eine Bezeichnung für die virtuelle Maschine ein. Hinter OS-Typ stellen Sie die gewünschte Windows-Version ein (Windows 7 bis 11). Der „Image-Index“ bestimmt die Edition. Den Wert können Sie per Klick auf „Index aus Install.wim ermitteln“ herausfinden. Für die automatische Installation per Antwortdatei klicken Sie auf „Antwortdatei erstellen“ und füllen das Formular aus. Damit ist auch eine Windows-11-Installation ohne Prüfung der Hardwarevoraussetzungen möglich. Mit einem Klick auf „VM erstellen“ wird die virtuelle Maschine angelegt und konfiguriert. Die Scripts starten dafür Vboxmanage aus dem Virtualbox-Installationsordner.
+
+**Hinweise:** Die Funktionen von Win-Deploy ließen sich auch ausschließlich mit Windows-Tools realisieren. Der Aufwand wäre aber deutlich höher. Zudem zeigt unser Beispiel, wie sich selbst systemnahe Aufgaben mit ein und demselben Tool unter Linux und Windows erledigen lassen. Win-Deploy profitiert bei einigen Dateioperationen von einem optimierten WSL-Kernel (siehe „Ein neuer Kernel für WSL2“ im Haupttext), so etwa beim Extrahieren der Windows-Installationsdateien in die VHD-Datei.
+![302_02_Win-Deploy](https://github.com/user-attachments/assets/39226b45-b4b9-4741-965b-25911b059681)
