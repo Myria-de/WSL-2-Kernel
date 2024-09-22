@@ -28,12 +28,12 @@ wsl --set-default-version 2
 wsl --set-default [Distribution]
 ```
 Den Platzhalter „[Distribution]“ ersetzen Sie durch die Bezeichnung der Distribution.
+![302_00_WSL](https://github.com/user-attachments/assets/eeaa8b03-772c-4e25-9b69-2c9e125d43e0)
 ## Neuen Kernel für WSL 2 erstellen
 Starten Sie Linux in WSL und installieren Sie einige Entwicklerpakete:
 ```
 sudo apt install build-essential flex bison dwarves libssl-dev libelf-dev libncurses-dev git
 ```
-
 **Schritt 1:** Erstellen Sie ein Arbeitsverzeichnis und laden Sie den Quellcode herunter (vier Zeilen):
 ```
 mkdir kernel
